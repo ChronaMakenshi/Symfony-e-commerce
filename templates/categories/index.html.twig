@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listes des produits
+{% endblock %}
+
+{% block body %}
+	<div class="container my-6">
+		<h1 class="mb-5 text-center">Liste des catégories</h1>
+		<div class="d-flex justify-content-between mt-5">
+			{% for category in categories %}
+				<div class="bg-dark position-relative">
+					<h2 class="z-index text-white">{{ category.name }}</h2>
+					<ul class="twocolunm position-absolute z-index-sous text-white mx-2 w-100">
+						{% for souscategory in category.sousCategories %}
+							<a class="text-decoration-none  text-white" href="{{ path('app_categories_list', { slug: souscategory.slug }) }}">
+								<li>{{ souscategory.name }}</li>
+							</a>
+						{% endfor %}
+					</ul>
+					<img class="catimage" src={{ asset('images/img_categorie/' ~ category.imageName) }} width="277px" height="314px" alt="" srcset=""/>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

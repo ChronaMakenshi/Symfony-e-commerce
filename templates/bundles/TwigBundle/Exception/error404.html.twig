@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<main class="container mt-5 mb-5">
+		<section class="row">
+			<div class="col-12 text-center mb-4">
+				<h1 class="title-article3">ERREUR 404 : Page Non Trouvée</h1>
+			</div>
+			<div class="mb-5">
+				<p>
+					Nous sommes désolé mais la page que vous cherchez n'est pas ou plus 
+																																																																        disponible. Nous vous suggérons de vous rendre sur
+					<a href={{ path('app_login') }}>la page 
+																																																																																			        d'accueil</a>
+					du site ou d'effectuer une nouvelle recherche</p>
+			</div>
+			<div class="text-center">
+				<p><img src="{{ asset('build/images/Neuneu_404.gif') }}" alt=""></p>
+			</div>
+		</section>
+	</main>
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<main
+		class="container">
+		<!--Section: Design Block-->
+		<section>
+			<!-- Intro -->
+			<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+				<div class="carousel-indicators">
+					{% for iteration in 1..product|slice(0,3)|length  %}
+						<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ iteration -1 }}" {{ ( loop.first ) ? 'class="active" aria-current="true" ' : '' }} aria-label="Slide 1"></button>
+					{% endfor %}
+				</div>
+				<div class="carousel-inner">
+					{% for products in product|slice(0,3) %}
+						<div class="carousel-item {{ ( loop.first) ? 'active' : '' }}">
+
+							{% for image in products.images|slice(0, 1) %}
+								<a href={{ path('app_products_details', {"slug": products.slug } ) }} class="text-decoration-none text-dark">
+									<img src="{{ asset('images/upload/') ~ image.name }}" width="1080px" height="800px" class="d-block w-100" alt="{{ products.name }}">
+								</a>
+							{% endfor %}
+							<div class="carousel-caption d-none d-md-block text-white bg-dark opacity-75">
+								<h5>{{ products.name }}</h5>
+								<p>{{ products.description|slice(0, 300) ~ '...' }}</p>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
+			</div>
+			<!-- Intro -->
+		</section>
+		<!--Section: Design Block-->
+		<section class="row my-5">
+			<div class="text-center col-12">
+				<h1 class="title">Les Produits populaires</h1>
+				<div class="line"></div>
+			</div>
+			<div class="d-flex justify-content-between  mt-5">
+				{% for product in products|slice(0, 4) %}
+					{% for image in product.images|slice(0, 1) %}
+						<a href={{ path('app_products_details', {"slug": product.slug } ) }} class="text-decoration-none text-dark">
+							<div class="card">
+								<img src="{{ asset('images/upload/') ~ image.name }}" width="200px" height="200px" class="d-block w-100" alt="{{ product.name }}">
+							{% endfor %}
+							<div class="card-body ">
+								<h5 class="card-title ">{{ product.name }}</h5>
+								<p class="card-text">{{ product.price / 100 }}
+									€</p>
+							</a>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			<a href="{{ path('app_products_index') }}" type="button" class="btn btn-outline-dark m-auto border-3 col-2 mt-5">A plus...</a>
+		</section>
+		<section>
+			<div class="promo mb-5 d-flex align-items-center justify-content-center position-relative">
+				<img src="{{ asset('images/Rectangle 9banner.svg') }}" alt="">
+				<div class="position-absolute">
+					<div class="d-flex justify-content-between">
+						<p class="text-white display-1 title-promo">Solde d'été</p>
+						<p class="text-dark display-1 title-promo">30 %</p>
+					</div>
+					<div class="col-5 border border-dark p-4">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus pellentesque odio viverra imperdiet ut pellentesque in eget.
+						</p>
+					</div>
+					<div class="d-flex justify-content-end">
+						<button type="button" class="btn btn-outline-light border-3 col-2 mt-5">A plus...</button>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="row">
+			<div class="text-center col-12">
+				<h1 class="title">TOP CATEGORIES</h1>
+				<div class="line"></div>
+			</div>
+			<div class="d-flex justify-content-between mt-5">
+				{% for category in categories %}
+					<div class="bg-dark position-relative">
+						<h2 class="z-index text-white">{{ category.name }}</h2>
+						<ul class="twocolunm position-absolute z-index-sous text-white mx-2 w-100">
+							{% for souscategory in category.sousCategories %}
+								<a class="text-decoration-none  text-white" href="{{ path('app_categories_list', { slug: souscategory.slug }) }}">
+									<li>{{ souscategory.name }}</li>
+								</a>
+							{% endfor %}
+						</ul>
+						<img class="catimage" src={{ asset('images/img_categorie/' ~ category.imageName) }} width="277px" height="314px" alt="" srcset=""/>
+					</div>
+				{% endfor %}
+			</div>
+			<a href="{{ path('app_categories_index') }}" type="button" class="btn btn-outline-dark m-auto border-3 col-2 mt-5">A plus...</a>
+		</section>
+		<section class="my-5">
+			<h4 class="title-about">A propos de nous</h4>
+			<div class="d-flex justify-content-around my-5">
+				<div class="col-4 position-relative">
+					<div class="about"></div>
+					<div class="position-absolute w-100 end-10 bottom-95">
+						<p class="position-absolute text-about">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna scelerisque eget mi facilisis malesuada purus sed lobortis tristique. Erat nisl, id quam suspendisse amet, diam ridiculus. Senectus ut eu nam eleifend. Aenean sit leo aenean pharetra gravida venenatis. Eget eget aliquet dictumst pellentesque sodales venenatis pellentesque eget. Viverra nec hendrerit lacus hendrerit quis. Quis placerat at gravida faucibus orci bibendum. Vulputate platea senectus netus ac est faucibus diam. Purus euismod eu et euismod accumsan, duis. Non risus faucibus ornare quis et laoreet purus vivamus ornare. Consequat mauris sit metus diam congue vulputate. Sit sagittis aenean sit pharetra ac quis nec nulla.																																																																																																																																																																																																															A aliquam sit rhoncus sapien, velit interdum molestie. Morbi cras commodo faucibus volutpat a ullamcorper donec euismod sed. Sagittis egestas aliquam, ipsum consectetur diam. Ut ultrices lacus, in purus nibh metus. Semper vestibulum, urna viverra suspendisse lectus mauris ultricies convallis. Sed aenean porttitor velit sollicitudin elementum, sit in suspendisse tellus. Pellentesque.</p>
+					</div>
+				</div>
+				<img class="col-6 h-100" src="{{ asset('images/magasin.jpg') }}" alt="">
+			</div>
+		</section>
+	</main>
+{% endblock %}

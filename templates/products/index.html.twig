@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listes des produits
+{% endblock %}
+
+{% block body %}
+<div  class="my-6 text-center" >
+	<h1 class="mb-5" >Liste des produits</h1> 
+	{% for product in products %}
+		<p>{{ product.name}}</p>
+	{% endfor %}
+</div>
+{% endblock %}

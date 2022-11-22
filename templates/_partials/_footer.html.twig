@@ -1,0 +1,53 @@
+<footer
+	class="container-fluid bg-dark text-white colorfooter">
+	<!-- Grid container -->
+	<div class="container p-4 d-flex justify-content-between align-items-center">
+
+		<div class="row">
+			<h4 class="text-center mb-4">Nous sommes ici</h4>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18915.982326930844!2d0.6979598346439703!3d45.18957398579815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ff7101944a0ee1%3A0xe0b3cf9e038ef785!2sP%C3%A9rigueux!5e0!3m2!1sfr!2sfr!4v1659343430814!5m2!1sfr!2sfr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</div>
+		<div>
+			<h4 class="text-center mb-4">
+				<a href="" class="text-decoration-none text-white">Contacter nous !
+				</a>
+			</h4>
+			<p><img src="{{ asset('images/mdi_phone.svg') }}" class="me-2" alt="" srcset="">06 99 99 99 99</p>
+			<p><img src="{{ asset('images/mdi_mail.svg') }}" class="me-2" alt="" srcset="">NeuneuTheBoss@gmail.com</p>
+			<ul class="text-center h5">Ouverture</ul>
+			<li class="list-unstyled">
+				<span class="fw-bolder">Lundi - Vendredi</span>
+				: 9h - 20h</li>
+			<li class="list-unstyled">
+				<span class="fw-bolder">Samedi</span>
+				: 9h - 12h</li>
+			<li class="list-unstyled">
+				<span class="fw-bolder">Dimanche</span>
+				: Fermé</li>
+		</div>
+	</div>
+	<!-- Grid container -->
+	<div class="colorfooter1 py-4">
+		<div class="d-flex justify-content-around">
+			<div class="row">
+				{% for souscategories in souscategory|slice(0, 4) %}
+					<section class="col text-center">
+						<h5>
+							{{ souscategories.name }}
+						</h5>
+						<ul class="twocolunm">
+							{% for product in souscategories.products| slice(0, 10) %}
+								<li class="h6">{{ product.name|slice(0, 14) }}</li>
+							{% endfor %}
+						</ul>
+					</section>
+				{% endfor %}
+			</div>
+			<div class="newsletter">
+				<p>Newsletter</p>
+
+				<input type="email" placeholder="Email">
+			</div>
+		</div>
+	</div>
+</footer>

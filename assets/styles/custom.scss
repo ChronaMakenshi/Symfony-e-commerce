@@ -1,0 +1,31 @@
+$gray-900: #212529;
+$black:    #000;
+$bluebig:    #0003ad;
+$dark:          $gray-900;
+
+$position-values: (
+  0: 0,
+  5: 5%,
+  10: 10%,
+  40: 40%,  
+  50: 50%,
+  95: 95%,
+  100: 100%
+);
+
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 6,
+);
+
+$carousel-indicator-width: 40px;
+$carousel-indicator-active-bg: $dark;
+$carousel-indicator-height: 5px;
+$carousel-control-color: $bluebig;
+$carousel-control-icon-width: 4rem;

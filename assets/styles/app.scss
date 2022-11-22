@@ -1,0 +1,186 @@
+@import "custom";
+@import "~bootstrap/scss/bootstrap";
+
+@font-face {
+  font-family: "RobotoCondensed";
+  src:url('../fonts/RobotoCondensed-Regular.ttf') format("truetype");
+  font-display: auto;
+}
+
+// Nav et header
+
+/* Color of the links BEFORE scroll */
+.navbar-scroll .nav-link,
+.navbar-scroll .navbar-toggler-icon,
+.navbar-scroll .navbar-brand {
+  color: #fff;
+}
+
+/* Color of the links AFTER scroll */
+.navbar-scrolled .nav-link,
+.navbar-scrolled .navbar-toggler-icon,
+.navbar-scrolled .navbar-brand {
+  color: #fff;
+}
+
+/* Color of the navbar AFTER scroll */
+.navbar-scroll,
+.navbar-scrolled {
+  background-color: #cbbcb1;
+}
+
+.mask-custom {
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.855);
+}
+
+.navbar-brand {
+  font-size: 1.75rem;
+  letter-spacing: 3px;
+}
+
+.mask {
+    background-color: rgba(250, 182, 162, 0.15);
+}
+
+// main
+
+// title
+
+.title {
+  font-family: 'RobotoBold', sans-serif;
+  font-weight: 750;
+  font-size: 2.75em;
+  letter-spacing: 0.07em;
+}
+
+.line {
+  border: 3px solid rgba(5, 11, 35, 1);
+  width: 200px;
+  margin: auto;
+  border-radius: 3px;
+}
+
+// promo
+
+.promo{
+  background: #121212;
+  box-shadow: 0px 4px 2px rgba(153, 153, 153, 0.09);
+  width: 1320px;
+  height: 600px;
+}
+
+.title-promo {
+  font-family: 'RobotoCondensed', sans-serif;
+  font-weight: bolder;
+}
+
+// Categories
+
+.z-index{
+  z-index: 1;
+  position: absolute;
+  top: 50%; left: 50%; /* à 50%/50% du parent référent */
+  transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
+  text-align: center;
+  width: 80%;
+  font-family: 'RobotoCondensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.5em;
+  line-height: 47px;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+  border-top: 8px solid #0b009fee;
+  border-bottom: 8px solid #0b009fee;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.z-index-sous{
+  z-index: 1;
+  top: 65%;
+  font-family: 'RobotoCondensed', sans-serif;
+}
+
+.catimage {
+  opacity: 0.6;
+}
+
+// About
+
+.about{
+  background: #F4F4F4;
+  width: 450px;
+  height: 410px;
+}
+
+.title-about{
+  font-family: 'RobotoCondensed', sans-serif;
+  font-weight: bolder;
+  font-size: 2.75em;
+}
+
+.text-about{
+  font-family: 'RobotoCondensed', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.95em;
+  line-height: 110%;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.40);
+}
+
+/* login */
+
+.card-login {
+    margin-top: -100px; 
+    background: hsla(0, 0%, 100%, 0.8); 
+    backdrop-filter: blur(30px); 
+}
+
+.bg-image1 {
+    background: no-repeat center/100% url('../../public/images/171.jpg'); 
+    height: 300px;
+}
+
+/* Footer */
+
+.colorfooter {
+    background-color: rgb(39, 38, 38);
+}
+
+.colorfooter1 {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.twocolunm{
+  column-count: 2;
+  column-gap: 20px;
+  list-style: none;
+}
+
+.newsletter{
+  & > input {
+    color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid #FFFFFF;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+  }
+}
+
+.newsletter{
+  & > p {
+    font-family: 'RobotoCondensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
+// liste des produits
+
+.card-height {
+  height: 300px;
+  width: 350px;
+}

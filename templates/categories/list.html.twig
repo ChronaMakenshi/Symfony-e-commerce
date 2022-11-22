@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Liste des produits de la sous-catégorie
+	{{ souscategory.name }}
+
+{% endblock %}
+
+{% block body %}
+	<main class="container my-6">
+		<section class="row">
+			<div class="col-12 mb-5 text-center">
+				<h1 class="title text-decoration-underline">Liste des produits de la sous-catégorie
+					{{ souscategory.name }}
+				</h1>
+			</div>
+			{% for product in products.data %}
+				<div class="col-3 mb-3  m-auto">
+					<article class="card card-height">
+						<div class="card-body">
+							<h2 class="text-center card-title text-decoration-underline h4 fw-bold">{{ product.name }}</h2>
+							<p class="card-text h6 my-3">
+								{{ product.description|slice(0, 300) ~ '...' }}
+							</p>
+							<a href={{ path('app_products_details', {"slug": product.slug } ) }} class="btn btn-primary w-100">Voir les détails</a>
+						</div>
+					</article>
+				</div>
+			{% endfor %}
+			<div class="d-flex justify-content-center mt-5">
+				{% set path = 'app_categories_list' %}
+				{% set slug = souscategory.slug %}
+				{% set pages = products.pages %}
+				{% set currentPage = products.page %}
+				{% include "_partials/_pagination.html.twig" %}
+			</div>
+		</section>
+	</main>
+{% endblock %}
